@@ -1,0 +1,48 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Braulio Baltazar',
+  description = 'Braulio Baltazar — designer, brand strategist, and creative problem solver working at the intersection of science, technology, art, and design.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/images/webclip.png" />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href="https://braulio.ca" />
+
+    <!-- Stylesheets -->
+    <link href="/css/modern-normalize.css" rel="stylesheet" type="text/css" />
+    <link href="/css/braulio-baltazar.webflow.css" rel="stylesheet" type="text/css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@500;600;700&display=swap"
+    />
+
+    <!-- Favicon -->
+    <link href="/images/favicon.png" rel="shortcut icon" type="image/x-icon" />
+    <link href="/images/webclip.png" rel="apple-touch-icon" />
+  </head>
+  <body>
+    <slot />
+    <script src="/js/main.js" defer></script>
+  </body>
+</html>
